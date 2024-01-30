@@ -1,0 +1,306 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Josefin Sans', sans-serif;
+}
+body {
+  background-color: #031321
+}
+.App {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  user-select: none;
+  > .register {
+    margin: 50px 0 0 100px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    > form > div {
+      display: flex;
+      flex-direction: column;
+      margin: 20px 0;
+      &.date{
+        flex-direction: row;
+        > div:nth-child(2) {
+          margin-left: 15px;
+        }
+      }
+      select {
+        color: #827775;
+      }
+       select, input {
+        padding: 12px;
+        outline: none;
+        border: 1px solid; 
+        border-radius: 5px;
+        ::placeholder{
+          color: #827775;
+        }
+      }
+    }
+    > form:nth-child(2) {
+      margin-left: 50px;
+    }
+    > a.send {
+      position: absolute;
+      left: 50%;
+      top: 110%;
+      transform: translate(-50%, -50%);
+      color: #2196f3;
+      padding: 20px 30px 15px;
+      display: inline-block;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 20px;
+      text-decoration: none;
+      cursor: pointer;
+      overflow: hidden;
+      outline: none;
+      border: none;
+      transition: .2s;
+      font-weight: 900;
+      &:hover {
+        color: #111c49;
+        background-color: #2159f3;
+        box-shadow: 0 0 10px #5e6d86,
+                  0 0 40px #5e6d86,
+                  0 0 80px #5e6d86;
+        transition-delay: 1s;
+      }
+      > span {
+        position: absolute;
+        display: block;
+      }
+      > span:nth-child(1) {
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #2169f3);
+      }
+      &:hover span:nth-child(1) {
+        left: 100%;
+        transition: 1s;
+      }
+      > span:nth-child(3) {
+        bottom: 0;
+        right: -100%;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(270deg, transparent, #2169f3);
+      }
+      &:hover span:nth-child(3) {
+        right: 100%;
+        transition: 1s;
+        transition-delay: .5s;
+      }
+      > span:nth-child(2) {
+        top: -100%;
+        right: 0;
+        width: 2px;
+        height: 100%;
+        background: linear-gradient(180deg, transparent, #2169f3);
+      }
+      &:hover span:nth-child(2) {
+        top: 100%;
+        transition: 1s;
+        transition-delay: .25s;
+      }
+      > span:nth-child(4) {
+        bottom: -100%;
+        left: 0;
+        width: 2px;
+        height: 100%;
+        background: linear-gradient(360deg, transparent, #2169f3);
+      }
+      &:hover span:nth-child(4) {
+        bottom: 100%;
+        transition: 1s;
+        transition-delay: .75s;
+      }
+    }
+    > .shake {
+      animation: shake .8s ease-in;
+    }
+  }
+  > .card {
+    width: 30%;
+    perspective: 1000px;
+    &:hover .card-inner {
+      transform: rotateY(-180deg);
+    }
+    > .card-inner {
+      width: 100%;
+      min-height: 270px;
+      border-radius: 15px;
+      position: relative;
+      transition: transform 1s;
+      transform-style: preserve-3d;
+        > .front, .back {
+          background-image: linear-gradient(45deg, #0e1028, #102e5f);
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          border-radius: 15px;
+          padding: 20px 0 0 20px;
+          overflow: hidden;
+          z-index: 1;
+          backface-visibility: hidden;
+        }
+        > .front {
+          > .pattern {
+            width: 100%;
+            position: absolute;
+            left: 0;
+            > img {
+              filter: invert(.7);
+              width: 235px;
+              height: 100px;
+              position: absolute;
+              transform: rotate(-1deg);
+            }
+            > img:nth-child(1) {
+              top: 60px;
+            }
+            > img:nth-child(2) {
+              left: 170px;
+            }
+          }
+          
+          > .card-info {
+            > h2 {
+              color: #fff;
+              margin-top: 10px;
+              font-size: 30px;
+            }
+            > .card-contact {
+              display: flex;
+              align-items: center;
+              margin-top: 20px;
+              > svg {
+                margin: 0px 5px;
+              }
+              > svg:nth-child(1) {
+                font-size: 55px;
+              }
+              > svg:nth-child(2) {
+                color: #fff;
+                transform: rotate(90deg);
+                font-size: 35px;
+              }
+            }
+            > span {
+              display: flex;
+              align-items: center;
+              position: relative;
+              z-index: 1;
+              color: #a0770a;
+              text-shadow: .5px .5px 0.5px black, 0 0 1em grey, 0 0 0.1em black;
+              &.code {
+                font-size: 25px;
+                margin-top: 5px;
+                margin-left: 10px;
+              }
+              &.date {
+                margin: 10px 0 0 150px;
+              }
+              &.person {
+                margin-top: 30px;
+                margin-left: 10px;
+                text-transform: uppercase;
+              }
+            }
+          }
+          > .visa-logo {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            right: 30px;
+            bottom: 0;
+            > svg{
+              color: #fff;
+              font-size: 80px;
+            }
+            > .gold {
+              position: absolute;
+              bottom: 7px;
+              right: 9px;
+              color: #fff;
+            }
+          }
+      }
+      > .back {
+        transform: rotateY(180deg);
+        > .bar {
+          height: 50px;
+          margin: 10px -30px 0;
+          background-color: #222;
+        }
+        > .card-cvc {
+          margin-top: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          position: relative;
+          > div {
+            flex: 1;
+            > img {
+              width: 100%;
+              height: 50px;
+              display: block;
+              line-height: 0;
+            }
+          }
+          > p {
+            min-height: 45px;
+            font-size: 22px;
+            padding: 10px 20px;
+            position: absolute;
+            right: 0;
+            transform: skewX(30deg);
+          }
+        }
+        .card-text {
+          color: #fff;
+          margin-top: 20px;
+          font-size: 14px;
+        }
+        .signature {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          color: #fff;
+          margin-top: -15px;
+          > svg {
+            font-size: 80px;
+          }
+        }
+      }
+    }
+  }
+}
+@keyframes shake {
+  0% {
+    transform: translate(0);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translate(.8em);
+  }
+  10%,
+  30%,
+  50% {
+    transform: translate(-.2em);
+  }
+  70%, 100% {
+    transform: translate(0);
+  }
+}
